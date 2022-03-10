@@ -1,2 +1,4 @@
 # A propos du projet
-Afin de permettre à nos lecteurs de suivre la progression quotidienne de l'invasion russe de l'Ukraine lancée fin février 2022, nous avons choisi d'utiliser les données produites par la communauté des contributeurs de Wikipedia. 
+
+Les données diffusées sont issues d’une page spécialisée sur Wikipédia. La page est soumise aux règles dites de “semi-protection étendue” qui limitent les saisies d’informations tant au niveau qualitatif que quantitatif (Lire notre article). Pour des questions de lisibilité et de cohérence, la rédaction du Parisien édite la typologie et le statut de certains lieux. Les données, récupérées et amendées par nos soins, sont publiées en format ouvert sur une plateforme externe.
+
