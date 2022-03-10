@@ -1,8 +1,8 @@
 # Création du WF pour aller chercher les données
 
-name: Get Daily verion of json
+name: Récupération quotidienne des données
 
-# Controls when the workflow will run
+# Heure de récupétation
 #on:
 #  schedule:
 #    - cron:  '00 09 * * *'
@@ -12,30 +12,32 @@ on:
       - main
 jobs: 
   getjson_publish:
-    # The type of runner that the job will run on
+    # La machine virtuelle tourne sur MacOS
     runs-on: macos-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }} 
-    # Load repo and install R
+    # Installe R
     steps:
     - uses: actions/checkout@master
     - uses: r-lib/actions/setup-r@master
 
-     # Set-up R
-    - name: Install packages
+     # Configure R
+    - name: Installation des packages
       run: |
         install.packages(c("curl","jsonlite"),type="binary")
       shell: Rscript {0}
 
-    # Run R script
+    # Script de récupération
     - name: installjsonlite
       run: Rscript getdailyjson.R
       
- # Add new files in data folder, commit along with other modified files, push siteplé
+ # Ajout des fichiers dans le dossier
     - name: Commit files
       run: |
         git config --local user.name actions-user
         git config --local user.email "actions@github.com"
         git add data/*
+        git commit -am "Recuperation des donnees $(date)"
+        git push origin main
       env:
         REPO_KEY: ${{secrets.GITHUB_TOKEN}}
