@@ -3,13 +3,13 @@
 name: Récupération quotidienne des données
 
 # Heure de récupération
-#on:
-#  schedule:
-#    - cron:  '45 08 * * *'
 on:
-  push:
-    branches:
-      - main
+  schedule:
+    - cron:  '30 08 * * *'
+#on:
+#  push:
+#    branches:
+#      - main
 jobs: 
   getjson_publish:
     # La machine virtuelle tourne sur MacOS
